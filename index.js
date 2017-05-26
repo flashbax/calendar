@@ -1,17 +1,27 @@
 window.onload = function() {
 
+"use strict";
+
 var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; 
+
+
+//create divs with IDs
 var divMonth = document.createElement('div');
 divMonth.setAttribute('id', 'month');
-divMonth.innerHTML = monthName[0]; 
+divMonth.innerHTML = monthName[0]; //Month Name
 document.getElementById('body').appendChild(divMonth);
     
+
+    (function numOfDays() { 
+        monthName[0] = 30; //Number
+    })();
     
+
     //make the div for days
-    function makeCal() { 
+    (function makeCal() { 
 
         //loop through and create 9 divs with ids
-        for (var i = 0; i<=30; i++) {  
+        for (var i = 0; i<=monthName[0]; i++) {  
             var divDay = document.createElement('div');     
             divDay.setAttribute('id', 'col'+i);
             //styles
@@ -32,10 +42,10 @@ document.getElementById('body').appendChild(divMonth);
             document.getElementById('body').appendChild(divDay);
         };
 
-    };
+    })();
 
-    //make buttons 
-    function buttonNext() { 
+    //make button style
+    (function buttonNext() { 
 
         var button = document.createElement('button'); 
         button.setAttribute('id', 'next'); 
@@ -48,14 +58,11 @@ document.getElementById('body').appendChild(divMonth);
         elem.style.display = 'block';
         elem.style.clear = 'both';
  
-    }
+    })();
 
     
-    
-    //init functions
-    
-    makeCal();
-    buttonNext();
+
+   
 }; //window load end
 
 
